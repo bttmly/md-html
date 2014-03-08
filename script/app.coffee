@@ -5,8 +5,6 @@
 
 window.App = {}
 
-App.marked = require "./marked"
-
 App.TextInput = class TextInput
   constructor : ( options ) ->
     this.$el = options.$el.eq 0
@@ -15,7 +13,7 @@ App.TextInput = class TextInput
     if options.bindNow
       this.bindEvents()
   
-  converter: App.marked
+  converter: marked
 
   focus : ->
     this.focused = false
@@ -49,7 +47,7 @@ App.TextOutput = class TextOutput
     if options.bindNow
       this.bindEvents()
 
-  converter : App.marked
+  converter : marked
   
   focus : ( triggerFocus ) ->
     this.focused = true
