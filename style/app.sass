@@ -1,0 +1,70 @@
+*, *:before, *:after
+  box-sizing: border-box
+
+body
+  overflow-x: hidden
+
+.text-input
+  position: absolute
+  left: -9000px
+
+.output-wrapper,
+.title-wrapper
+  width: 75%
+  margin: 2rem auto
+
+.text-output
+  position: relative
+  font-family: "PT Serif", serif
+  border: 1px solid gray
+  border-radius: .5rem
+  padding: 2rem
+  box-shadow: 0 0 0 transparent
+  transition: box-shadow .5s ease-in-out
+  -webkit-transition: border .5s ease-in-out
+  &.focused
+    border: 1px solid blue
+    box-shadow: 0 0 .5rem blue
+
+.output-wrapper
+  position: relative
+  .toggler
+    position: absolute
+    top: .5rem
+    right: .5rem
+    padding: .25rem
+    color: white
+    background: #333
+    cursor: pointer
+    border-radius: 4px
+    &:after
+      content: "html"
+    &.md:after
+      content: "md"
+
+$blinkCursor : "blink-cursor"
+
+.has-cursor
+  padding-right: .125em
+  border-right: .125rem solid black
+  animation: $blinkCursor .67s linear infinite
+
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+=keyframes( $blinkCursor )
+  0%
+    border-color: black
+  50%
+    border-color: black
+  51%
+    border-color: transparent
+  100%
+    border-color: transparent
